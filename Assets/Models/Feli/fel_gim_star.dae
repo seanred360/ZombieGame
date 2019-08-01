@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<COLLADA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.4.1" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+  <asset>
+    <created>2019-01-19T17:10:49.1565844+02:00</created>
+    <modified>2019-01-19T17:10:49.1565844+02:00</modified>
+  </asset>
+    <library_images>
+        <image id="ID5">
+            <init_from>fel_body_D.png</init_from>
+        </image>
+        <image id="ID10">
+            <init_from>fel_body_D.png</init_from>
+        </image>
+    </library_images>
+  <library_materials>
+    <material id="body_outline_mat_mat_id" name="body_outline_mat_mat">
+      <instance_effect url="#body_outline_mat_eff_id" />
+    </material>
+    <material id="body_sharp_mat_mat_id" name="body_sharp_mat_mat">
+      <instance_effect url="#body_sharp_mat_eff_id" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="body_outline_mat_eff_id" name="body_outline_mat_eff">
+            <profile_COMMON>
+                <newparam sid="ID11">
+                    <surface type="2D">
+                        <init_from>ID10</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="ID12">
+                    <sampler2D>
+                        <source>ID11</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="COMMON">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="ID12" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+    </effect>
+    <effect id="body_sharp_mat_eff_id" name="body_sharp_mat_eff">
+            <profile_COMMON>
+                <newparam sid="ID6">
+                    <surface type="2D">
+                        <init_from>ID5</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="ID7">
+                    <sampler2D>
+                        <source>ID6</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="COMMON">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="ID7" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="star_0_0_geo_id" name="star_0_0">
+      <mesh>
+        <source id="star_0_0_Position_id" name="star_0_0_Position">
+          <float_array id="star_0_0_Position_array_id" count="78">-1.00619 -1.15143 0 -0.889331 -1.14168 0 0 0 0 -0.00545294 -0.80088 0 1.05642 -1.36628 0 1.08145 -1.25277 0 0.766126 -0.240293 0 1.46305 0.561918 0 1.36995 0.624285 0 0.471412 0.666754 0 -0.00501593 1.62493 0 0.0820931 1.56458 0 0.471412 0.666754 0 -1.45188 0.582158 0 -1.34686 0.64019 0 -0.482311 0.666764 0 -0.0831926 1.56476 0 -0.482311 0.666764 0 1.41539 0.468939 0 0.766126 -0.240293 0 -1.39181 0.47182 0 -0.777035 -0.240302 0 -1.01599 -1.03324 0 -0.777035 -0.240302 0 0.928814 -1.34976 0 -0.00545294 -0.80088 0</float_array>
+          <technique_common>
+            <accessor source="#star_0_0_Position_array_id" count="26" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="star_0_0_TexCoord0_id" name="star_0_0_TexCoord0">
+          <float_array id="star_0_0_TexCoord0_array_id" count="52">0.902143 0.134438 0.897951 0.140817 0.822184 0.134438 0.856148 0.159261 0.902143 0.134438 0.897951 0.140817 0.856148 0.159261 0.902143 0.134438 0.897951 0.140817 0.856148 0.159261 0.902143 0.134438 0.897951 0.128059 0.856148 0.1101 0.902143 0.134438 0.897951 0.128059 0.856148 0.1101 0.897951 0.140817 0.856148 0.159261 0.897951 0.128059 0.856148 0.1101 0.897951 0.140817 0.856148 0.159261 0.897951 0.128059 0.856148 0.1101 0.897951 0.128059 0.856148 0.1101</float_array>
+          <technique_common>
+            <accessor source="#star_0_0_TexCoord0_array_id" count="26" stride="2" offset="0">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="star_0_0_vtx_id">
+          <input semantic="POSITION" source="#star_0_0_Position_id" />
+        </vertices>
+        <triangles material="Mdl_0_Mtl_body_sharp_mat" count="20">
+          <input semantic="VERTEX" source="#star_0_0_vtx_id" offset="0" />
+          <input semantic="TEXCOORD" source="#star_0_0_TexCoord0_id" offset="0" set="0" />
+          <p>0 1 2 1 3 2 4 5 2 5 6 2 7 8 2 2 8 9 10 2 11 11 2 12 13 2 14 2 15 14 10 16 2 2 16 17 7 2 18 18 2 19 13 20 2 20 21 2 0 2 22 2 23 22 4 2 24 2 25 24</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="star_1_0_geo_id" name="star_1_0">
+      <mesh>
+        <source id="star_1_0_Position_id" name="star_1_0_Position">
+          <float_array id="star_1_0_Position_array_id" count="78">-1.3469 -1.54133 -0.118649 -1.15053 -1.55055 -0.118649 0 0 -0.118649 -0.00796 -1.1691 -0.118649 1.41414 -1.82892 -0.118649 1.48358 -1.64501 -0.118649 1.11837 -0.350773 -0.118649 1.95846 0.752193 -0.118649 1.80501 0.87507 -0.118649 0.688153 0.973307 -0.118649 -0.00671439 2.17515 -0.118649 0.157569 2.06719 -0.118649 0.688153 0.973307 -0.118649 -1.94351 0.779286 -0.118649 -1.79006 0.902165 -0.118649 -0.704063 0.973321 -0.118649 -0.170991 2.06719 -0.118649 -0.704063 0.973321 -0.118649 1.90654 0.562591 -0.118649 1.11837 -0.350773 -0.118649 -1.89159 0.589683 -0.118649 -1.13429 -0.350785 -0.118649 -1.41634 -1.35742 -0.118649 -1.13429 -0.350785 -0.118649 1.21777 -1.83814 -0.118649 -0.00796 -1.1691 -0.118649</float_array>
+          <technique_common>
+            <accessor source="#star_1_0_Position_array_id" count="26" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="star_1_0_TexCoord0_id" name="star_1_0_TexCoord0">
+          <float_array id="star_1_0_TexCoord0_array_id" count="52">0.983606 0.1645 0.98069 0.168936 0.928001 0.1645 0.95162 0.181762 0.983606 0.1645 0.98069 0.168936 0.95162 0.181762 0.983606 0.1645 0.98069 0.168936 0.95162 0.181762 0.983606 0.1645 0.98069 0.160064 0.95162 0.147575 0.983606 0.1645 0.98069 0.160064 0.95162 0.147575 0.98069 0.168936 0.95162 0.181762 0.98069 0.160064 0.95162 0.147575 0.98069 0.168936 0.95162 0.181762 0.98069 0.160064 0.95162 0.147575 0.98069 0.160064 0.95162 0.147575</float_array>
+          <technique_common>
+            <accessor source="#star_1_0_TexCoord0_array_id" count="26" stride="2" offset="0">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="star_1_0_vtx_id">
+          <input semantic="POSITION" source="#star_1_0_Position_id" />
+        </vertices>
+        <triangles material="Mdl_0_Mtl_body_outline_mat" count="20">
+          <input semantic="VERTEX" source="#star_1_0_vtx_id" offset="0" />
+          <input semantic="TEXCOORD" source="#star_1_0_TexCoord0_id" offset="0" set="0" />
+          <p>0 1 2 1 3 2 4 5 2 5 6 2 7 8 2 2 8 9 10 2 11 11 2 12 13 2 14 2 15 14 10 16 2 2 16 17 7 2 18 18 2 19 13 20 2 20 21 2 0 2 22 2 23 22 4 2 24 2 25 24</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="star_0_0_ctrl_id" name="star_0_0_ctrl">
+      <skin source="#star_0_0_geo_id">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="star_0_0_ctrl_names_id" name="star_0_0_ctrl_names">
+          <Name_array id="star_0_0_ctrl_names_array_id" count="2">fel_gim_star root</Name_array>
+          <technique_common>
+            <accessor source="#star_0_0_ctrl_names_array_id" count="2" stride="1" offset="0">
+              <param name="JOINT" type="Name" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="star_0_0_ctrl_poses_id" name="star_0_0_ctrl_poses">
+          <float_array id="star_0_0_ctrl_poses_array_id" count="32">1 0 0 0 0 1 0 0.129189 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#star_0_0_ctrl_poses_array_id" count="2" stride="16" offset="0">
+              <param name="TRANSFORM" type="float4x4" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="star_0_0_ctrl_weights_id" name="star_0_0_ctrl_weights">
+          <float_array id="star_0_0_ctrl_weights_array_id" count="1">1</float_array>
+          <technique_common>
+            <accessor source="#star_0_0_ctrl_weights_array_id" count="1" stride="1" offset="0">
+              <param name="WEIGHT" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#star_0_0_ctrl_names_id" />
+          <input semantic="INV_BIND_MATRIX" source="#star_0_0_ctrl_poses_id" />
+        </joints>
+        <vertex_weights count="26">
+          <input semantic="JOINT" source="#star_0_0_ctrl_names_id" offset="0" />
+          <input semantic="WEIGHT" source="#star_0_0_ctrl_weights_id" offset="1" />
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+          <v>1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="star_1_0_ctrl_id" name="star_1_0_ctrl">
+      <skin source="#star_1_0_geo_id">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="star_1_0_ctrl_names_id" name="star_1_0_ctrl_names">
+          <Name_array id="star_1_0_ctrl_names_array_id" count="2">fel_gim_star root</Name_array>
+          <technique_common>
+            <accessor source="#star_1_0_ctrl_names_array_id" count="2" stride="1" offset="0">
+              <param name="JOINT" type="Name" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="star_1_0_ctrl_poses_id" name="star_1_0_ctrl_poses">
+          <float_array id="star_1_0_ctrl_poses_array_id" count="32">1 0 0 0 0 1 0 0.129189 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#star_1_0_ctrl_poses_array_id" count="2" stride="16" offset="0">
+              <param name="TRANSFORM" type="float4x4" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="star_1_0_ctrl_weights_id" name="star_1_0_ctrl_weights">
+          <float_array id="star_1_0_ctrl_weights_array_id" count="1">1</float_array>
+          <technique_common>
+            <accessor source="#star_1_0_ctrl_weights_array_id" count="1" stride="1" offset="0">
+              <param name="WEIGHT" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#star_1_0_ctrl_names_id" />
+          <input semantic="INV_BIND_MATRIX" source="#star_1_0_ctrl_poses_id" />
+        </joints>
+        <vertex_weights count="26">
+          <input semantic="JOINT" source="#star_1_0_ctrl_names_id" offset="0" />
+          <input semantic="WEIGHT" source="#star_1_0_ctrl_weights_id" offset="1" />
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+          <v>1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_visual_scenes>
+    <visual_scene id="fel_gim_star_00_id" name="fel_gim_star_00">
+      <node id="fel_gim_star_bone_id" name="fel_gim_star" sid="fel_gim_star" type="JOINT">
+        <translate sid="translate">0 -0.129189 0</translate>
+        <rotate sid="rotateZ">0 0 1 0</rotate>
+        <rotate sid="rotateY">0 1 0 0</rotate>
+        <rotate sid="rotateX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <node id="root_bone_id" name="root" sid="root" type="JOINT">
+          <translate sid="translate">0 0.129189 0</translate>
+          <rotate sid="rotateZ">0 0 1 0</rotate>
+          <rotate sid="rotateY">0 1 0 0</rotate>
+          <rotate sid="rotateX">1 0 0 0</rotate>
+          <scale sid="scale">1 1 1</scale>
+        </node>
+      </node>
+      <node id="star_0_0_node_id" name="star_0_0_node" type="NODE">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_controller url="#star_0_0_ctrl_id">
+          <skeleton>#fel_gim_star_bone_id</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mdl_0_Mtl_body_sharp_mat" target="#body_sharp_mat_mat_id" />
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="star_1_0_node_id" name="star_1_0_node" type="NODE">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_controller url="#star_1_0_ctrl_id">
+          <skeleton>#fel_gim_star_bone_id</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mdl_0_Mtl_body_outline_mat" target="#body_outline_mat_mat_id" />
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#fel_gim_star_00_id" />
+  </scene>
+</COLLADA>

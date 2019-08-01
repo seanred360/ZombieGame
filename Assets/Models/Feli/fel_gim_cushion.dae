@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<COLLADA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.4.1" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+  <asset>
+    <created>2019-01-19T17:09:34.6252569+02:00</created>
+    <modified>2019-01-19T17:09:34.6252569+02:00</modified>
+  </asset>
+    <library_images>
+        <image id="ID5">
+            <init_from>fel_body_D.png</init_from>
+        </image>
+        <image id="ID10">
+            <init_from>fel_body_D.png</init_from>
+        </image>
+    </library_images>
+  <library_materials>
+    <material id="body_fur_mat_mat_id" name="body_fur_mat_mat">
+      <instance_effect url="#body_fur_mat_eff_id" />
+    </material>
+    <material id="body_outline_mat_mat_id" name="body_outline_mat_mat">
+      <instance_effect url="#body_outline_mat_eff_id" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="body_fur_mat_eff_id" name="body_fur_mat_eff">
+            <profile_COMMON>
+                <newparam sid="ID11">
+                    <surface type="2D">
+                        <init_from>ID10</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="ID12">
+                    <sampler2D>
+                        <source>ID11</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="COMMON">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="ID12" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+    </effect>
+    <effect id="body_outline_mat_eff_id" name="body_outline_mat_eff">
+            <profile_COMMON>
+                <newparam sid="ID6">
+                    <surface type="2D">
+                        <init_from>ID5</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="ID7">
+                    <sampler2D>
+                        <source>ID6</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="COMMON">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="ID7" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="cushion_0_0_geo_id" name="cushion_0_0">
+      <mesh>
+        <source id="cushion_0_0_Position_id" name="cushion_0_0_Position">
+          <float_array id="cushion_0_0_Position_array_id" count="258">4.28875 -1.17909 1.9679 3.72861 -1.13031 1.82368 3.26289 -2.15376 3.29177 2.58112 -1.92447 3.25484 4.37849 -0.596504 -0.370801 3.69539 -0.479124 -0.373955 2.12781 -2.01791 3.74943 2.0947 -2.19031 3.29323 3.26289 -2.15376 3.29177 3.0654 -2.2707 2.9419 2.12781 -2.01791 3.74943 1.60687 -0.787348 3.46819 1.44773 -1.10596 3.847 3.81057 -1.45452 0.357207 4.28875 -1.17909 1.9679 4.37849 -0.596504 -0.370801 3.03739 -0.984331 -2.87819 2.29603 -0.482321 -2.47371 3.03739 -0.984331 -2.87819 2.67685 0.327665 2.24014 0.619791 -0.499403 4.01698 0 -0.808233 -3.78011 0 -0.399092 -3.17577 1.43411 -1.50563 3.47759 1.44773 -1.10596 3.847 0 0.0286617 3.59379 0 -0.350372 4.06003 0.619791 -0.499403 4.01698 0.644379 -0.824287 3.56056 0 -0.63122 3.56135 0 0.613871 -0.222166 0.644379 -0.824287 3.56056 1.43411 -1.50563 3.47759 3.81057 -1.45452 0.357207 3.03739 -0.984331 -2.87819 0 -0.808233 -3.78011 3.0654 -2.2707 2.9419 2.0947 -2.19031 3.29323 0 1.09693 3.13689 0 -0.63122 3.56135 0 -0.350372 4.06003 -2.29603 -0.482321 -2.47371 -3.03739 -0.984331 -2.87819 -3.69539 -0.479124 -0.373955 -4.37849 -0.596504 -0.370801 -3.03739 -0.984331 -2.87819 2.59332 1.2219 -0.375726 1.21944 1.09479 -1.99051 1.20702 2.12998 -0.395904 1.7732 1.75113 1.16285 1.20702 2.12998 -0.395904 0 2.30626 -0.395458 0 1.23353 -2.2286 0 2.30626 -0.395458 0 2.11384 1.74773 -2.59332 1.2219 -0.375726 -1.21944 1.09479 -1.99051 -1.20702 2.12998 -0.395904 -1.7732 1.75113 1.16285 -1.20702 2.12998 -0.395904 -2.67685 0.327665 2.24014 -2.58112 -1.92447 3.25484 -3.72861 -1.13031 1.82368 -3.26289 -2.15376 3.29177 -4.28875 -1.17909 1.9679 -2.12781 -2.01791 3.74943 -3.26289 -2.15376 3.29177 -2.0947 -2.19031 3.29323 -3.0654 -2.2707 2.9419 -2.12781 -2.01791 3.74943 -1.60687 -0.787348 3.46819 -1.44773 -1.10596 3.847 -4.28875 -1.17909 1.9679 -3.81057 -1.45452 0.357207 -4.37849 -0.596504 -0.370801 -3.03739 -0.984331 -2.87819 -0.619791 -0.499403 4.01698 -1.44773 -1.10596 3.847 -1.43411 -1.50563 3.47759 -0.619791 -0.499403 4.01698 -0.644379 -0.824287 3.56056 -0.644379 -0.824287 3.56056 -1.43411 -1.50563 3.47759 -3.81057 -1.45452 0.357207 -3.0654 -2.2707 2.9419 -2.0947 -2.19031 3.29323</float_array>
+          <technique_common>
+            <accessor source="#cushion_0_0_Position_array_id" count="86" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="cushion_0_0_Normal_id" name="cushion_0_0_Normal">
+          <float_array id="cushion_0_0_Normal_array_id" count="258">-0.0178001 0.924132 0.381659 0.600248 0.660697 0.450757 0.192579 0.785577 0.588033 0.522873 0.525789 0.670932 0.158182 0.986305 0.0467125 0.686361 0.719991 -0.102577 -0.385583 -0.811519 0.439048 -0.404727 -0.873918 -0.26919 0.532548 -0.846178 0.0193816 -0.0305624 -0.950348 -0.309685 0.604468 0.476925 0.638092 0.454954 0.428271 0.780769 0.604468 0.476925 0.638092 -0.205197 -0.949896 -0.235778 0.65326 -0.753699 -0.0720448 0.705729 -0.667827 -0.236545 0.334103 0.854159 -0.398482 0.45121 0.667108 -0.59277 -0.311708 -0.939928 0.13919 0.596457 0.569148 0.565959 0.433242 0.790952 0.432083 0 0.822088 -0.569361 0 0.628764 -0.777596 -0.702574 -0.711609 -0.00163792 -0.502148 -0.662823 0.555439 0 0.511346 0.859375 0 0.775939 0.630808 -0.314787 -0.769731 0.555359 -0.538534 -0.841215 -0.0483607 0 -0.991087 -0.13322 0 -0.999963 -0.00860724 -0.538534 -0.841215 -0.0483607 -0.702574 -0.711609 -0.00163792 -0.205197 -0.949896 -0.235778 -0.311708 -0.939928 0.13919 0 -0.928573 0.371149 -0.0305624 -0.950348 -0.309685 -0.404727 -0.873918 -0.26919 0 0.663293 0.74836 0 -0.991087 -0.13322 0 -0.846931 0.531703 -0.45121 0.667108 -0.59277 -0.334103 0.854159 -0.398482 -0.686361 0.719991 -0.102577 -0.158182 0.986305 0.0467124 0.311708 -0.939928 0.13919 0.743837 0.641033 -0.189165 0.34815 0.676828 -0.648611 0.285673 0.939422 -0.189415 0.432452 0.822525 0.369374 0.285673 0.939422 -0.189415 0 0.983922 -0.178599 0 0.754785 -0.655972 0 0.983922 -0.178599 0 0.886235 0.463236 -0.743837 0.641033 -0.189165 -0.34815 0.676828 -0.648611 -0.285673 0.939422 -0.189415 -0.432452 0.822525 0.369374 -0.285673 0.939422 -0.189415 -0.596457 0.569148 0.565959 -0.522873 0.525789 0.670932 -0.600248 0.660697 0.450757 -0.192579 0.785577 0.588033 0.0178001 0.924132 0.381659 0.385583 -0.811519 0.439048 -0.532548 -0.846178 0.0193815 0.404727 -0.873918 -0.26919 0.0305624 -0.950348 -0.309685 -0.604468 0.476925 0.638092 -0.454954 0.428271 0.780769 -0.604468 0.476925 0.638092 -0.65326 -0.753699 -0.0720449 0.205197 -0.949896 -0.235778 -0.705729 -0.667827 -0.236545 0.311708 -0.939928 0.13919 -0.433242 0.790952 0.432083 0.502148 -0.662823 0.555439 0.702574 -0.711609 -0.00163794 0.314787 -0.769731 0.555359 0.538534 -0.841215 -0.0483607 0.538534 -0.841215 -0.0483607 0.702574 -0.711609 -0.00163794 0.205197 -0.949896 -0.235778 0.0305624 -0.950348 -0.309685 0.404727 -0.873918 -0.26919</float_array>
+          <technique_common>
+            <accessor source="#cushion_0_0_Normal_array_id" count="86" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="cushion_0_0_TexCoord0_id" name="cushion_0_0_TexCoord0">
+          <float_array id="cushion_0_0_TexCoord0_array_id" count="172">0.0707008 0.91778 0.0707008 0.936376 0.0624732 0.91778 0.0536097 0.92368 0.0986579 0.91778 0.0986579 0.930029 0.0404092 0.91778 0.0404092 0.910221 0.0624732 0.91778 0.0624732 0.910221 0.0404092 0.91778 0.0339783 0.936376 0.0339783 0.91778 0.0864975 0.910221 0.0707008 0.91778 0.0986579 0.91778 0.123252 0.910221 0.131352 0.930029 0.123252 0.910221 0.0536097 0.952098 0.0212776 0.920885 0.175146 0.910221 0.175146 0.930029 0.0339783 0.910221 0.0339783 0.91778 0.0106509 0.931869 0.0106509 0.923069 0.0212776 0.920885 0.0212776 0.910221 0.228652 0.98114 0.192571 0.981773 0.228652 0.981529 0.228652 0.982007 0.228652 0.983443 0.228652 0.982976 0.228652 0.98114 0.228652 0.982939 0.228652 0.982406 0.0106509 0.953812 0.0106509 0.910221 0.0106509 0.923069 0.131352 0.930029 0.123252 0.910221 0.0986579 0.930029 0.0986579 0.91778 0.228652 0.982976 0.0986579 0.96833 0.142109 0.96833 0.0433562 0.991578 0.0455468 0.96833 0.136323 0.991578 0.175146 0.991578 0.175146 0.96833 0.0106509 0.991578 0.0106509 0.96833 0.0986579 0.96833 0.142109 0.96833 0.0433562 0.991578 0.0455468 0.96833 0.136323 0.991578 0.0536097 0.952098 0.0536097 0.92368 0.0707008 0.936376 0.0624732 0.91778 0.0707008 0.91778 0.0404092 0.91778 0.0624732 0.91778 0.0404092 0.910221 0.0624732 0.910221 0.0404092 0.91778 0.0339783 0.936376 0.0339783 0.91778 0.0707008 0.91778 0.0864975 0.910221 0.0986579 0.91778 0.123252 0.910221 0.0212776 0.920885 0.0339783 0.91778 0.0339783 0.910221 0.0212776 0.920885 0.0212776 0.910221 0.228652 0.981529 0.228652 0.982007 0.228652 0.983443 0.228652 0.982939 0.228652 0.982406</float_array>
+          <technique_common>
+            <accessor source="#cushion_0_0_TexCoord0_array_id" count="86" stride="2" offset="0">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="cushion_0_0_vtx_id">
+          <input semantic="POSITION" source="#cushion_0_0_Position_id" />
+          <input semantic="NORMAL" source="#cushion_0_0_Normal_id" />
+        </vertices>
+        <triangles material="Mdl_0_Mtl_body_fur_mat" count="104">
+          <input semantic="VERTEX" source="#cushion_0_0_vtx_id" offset="0" />
+          <input semantic="TEXCOORD" source="#cushion_0_0_TexCoord0_id" offset="0" set="0" />
+          <p>30 31 29 30 32 31 30 29 81 30 37 32 30 81 82 30 36 37 30 82 85 30 33 36 30 85 84 30 34 33 30 84 83 30 35 34 30 83 45 30 45 35 11 10 3 11 12 10 11 3 1 11 20 12 11 1 19 11 25 20 11 19 38 11 38 25 10 2 3 3 2 1 20 25 26 19 49 38 19 1 5 19 46 49 19 5 46 2 0 1 25 76 26 25 38 70 25 70 76 49 46 48 49 54 38 49 48 53 49 53 54 5 1 4 5 17 46 5 4 16 5 16 17 4 1 0 70 71 76 70 38 60 70 69 71 70 60 62 70 61 69 70 62 61 53 58 54 53 57 58 38 58 60 38 54 58 46 17 47 46 47 50 16 21 17 69 61 63 61 62 63 57 55 58 58 55 60 47 51 50 47 17 22 47 52 51 47 22 52 17 21 22 62 64 63 62 60 43 62 44 64 62 43 44 60 55 43 51 52 56 51 56 59 59 56 55 52 22 56 21 41 22 21 42 41 41 42 43 41 43 55 41 55 56 41 56 22 43 42 44 39 28 27 39 27 40 39 40 79 39 79 80 28 24 27 28 23 24 79 77 80 23 6 24 23 7 6 77 78 80 77 65 78 7 8 6 7 9 8 65 67 78 65 66 67 9 14 8 9 13 14 66 68 67 66 72 68 13 15 14 13 18 15 72 73 68 72 74 73 74 75 73</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="cushion_1_0_geo_id" name="cushion_1_0">
+      <mesh>
+        <source id="cushion_1_0_Position_id" name="cushion_1_0_Position">
+          <float_array id="cushion_1_0_Position_array_id" count="258">4.35654 -1.15725 2.00433 3.31342 -2.17639 3.34951 3.75674 -1.06647 1.86283 2.61676 -1.87179 3.30336 4.45043 -0.563896 -0.383514 3.73674 -0.410828 -0.379035 2.13378 -2.04525 3.82438 3.31342 -2.17639 3.34951 2.06473 -2.26444 3.29576 3.07773 -2.34919 2.93256 2.13378 -2.04525 3.82438 1.64927 -0.75107 3.52552 1.45382 -1.11656 3.92606 4.35654 -1.15725 2.00433 3.83278 -1.52918 0.338955 4.45043 -0.563896 -0.383514 3.06767 -1.00748 -2.94852 2.3296 -0.425446 -2.51886 3.06767 -1.00748 -2.94852 2.7287 0.369939 2.28401 0.632999 -0.495656 4.09579 0.000115362 -0.83885 -3.85402 -0.000396632 -0.343342 -3.23315 1.45382 -1.11656 3.92606 1.37789 -1.55973 3.49528 0 0.0805157 3.65471 -0.00425216 -0.349912 4.13991 0.632999 -0.495656 4.09579 0.607123 -0.893277 3.57645 -0.000676818 -0.7106 3.57126 0.607123 -0.893277 3.57645 -0.000435232 0.534025 -0.227119 1.37789 -1.55973 3.49528 3.83278 -1.52918 0.338955 3.06767 -1.00748 -2.94852 0.000115362 -0.83885 -3.85402 3.07773 -2.34919 2.93256 2.06473 -2.26444 3.29576 -0.000274914 1.14828 3.19823 -0.00425216 -0.349912 4.13991 -0.000676818 -0.7106 3.57126 -2.32959 -0.425447 -2.51887 -3.73674 -0.410827 -0.379034 -3.06937 -1.0075 -2.94776 -4.45043 -0.563881 -0.3835 -3.06937 -1.0075 -2.94776 2.65071 1.27513 -0.392237 1.24693 1.14738 -2.04416 1.23165 2.20397 -0.41375 1.81319 1.81663 1.18544 1.23165 2.20397 -0.41375 -0.00245274 1.29011 -2.2851 -0.00218989 2.3845 -0.412038 -0.00218989 2.3845 -0.412038 0 2.18652 1.78116 -2.65071 1.27513 -0.39224 -1.24929 1.14698 -2.04328 -1.23363 2.20342 -0.413157 -1.81382 1.81639 1.185 -1.23363 2.20342 -0.413157 -2.7287 0.369938 2.28401 -2.61676 -1.87178 3.30336 -3.31342 -2.17638 3.34951 -3.75674 -1.06647 1.86283 -4.35654 -1.15724 2.00434 -2.13378 -2.04524 3.82438 -2.06487 -2.26448 3.29626 -3.31342 -2.17638 3.34951 -3.07798 -2.34919 2.93284 -2.13378 -2.04524 3.82438 -1.6493 -0.751073 3.52549 -1.45382 -1.11655 3.92606 -3.83332 -1.52903 0.339031 -4.35654 -1.15724 2.00434 -4.45043 -0.563881 -0.3835 -3.06937 -1.0075 -2.94776 -0.63796 -0.495513 4.09479 -1.37804 -1.5597 3.49579 -1.45382 -1.11655 3.92606 -0.63796 -0.495513 4.09479 -0.607291 -0.893188 3.57721 -0.607291 -0.893188 3.57721 -1.37804 -1.5597 3.49579 -3.83332 -1.52903 0.339031 -3.07798 -2.34919 2.93284 -2.06487 -2.26448 3.29626</float_array>
+          <technique_common>
+            <accessor source="#cushion_1_0_Position_array_id" count="86" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="cushion_1_0_TexCoord0_id" name="cushion_1_0_TexCoord0">
+          <float_array id="cushion_1_0_TexCoord0_array_id" count="172">0.0707008 0.91778 0.0624732 0.91778 0.0707008 0.936376 0.0536097 0.92368 0.0986579 0.91778 0.0986579 0.930029 0.0404092 0.91778 0.0624732 0.91778 0.0404092 0.910221 0.0624732 0.910221 0.0404092 0.91778 0.0339783 0.936376 0.0339783 0.91778 0.0707008 0.91778 0.0864975 0.910221 0.0986579 0.91778 0.123252 0.910221 0.131352 0.930029 0.123252 0.910221 0.0536097 0.952098 0.0212776 0.920885 0.175146 0.910221 0.175146 0.930029 0.0339783 0.91778 0.0339783 0.910221 0.0106509 0.931869 0.0106509 0.923069 0.0212776 0.920885 0.0212776 0.910221 0.228652 0.98114 0.228652 0.981529 0.192571 0.981773 0.228652 0.982007 0.228652 0.983443 0.228652 0.982976 0.228652 0.98114 0.228652 0.982939 0.228652 0.982406 0.0106509 0.953812 0.0106509 0.923069 0.0106509 0.910221 0.131352 0.930029 0.0986579 0.930029 0.123252 0.910221 0.0986579 0.91778 0.228652 0.982976 0.0986579 0.96833 0.142109 0.96833 0.0433562 0.991578 0.0455468 0.96833 0.136323 0.991578 0.175146 0.96833 0.175146 0.991578 0.0106509 0.991578 0.0106509 0.96833 0.0986579 0.96833 0.142109 0.96833 0.0433562 0.991578 0.0455468 0.96833 0.136323 0.991578 0.0536097 0.952098 0.0536097 0.92368 0.0624732 0.91778 0.0707008 0.936376 0.0707008 0.91778 0.0404092 0.91778 0.0404092 0.910221 0.0624732 0.91778 0.0624732 0.910221 0.0404092 0.91778 0.0339783 0.936376 0.0339783 0.91778 0.0864975 0.910221 0.0707008 0.91778 0.0986579 0.91778 0.123252 0.910221 0.0212776 0.920885 0.0339783 0.910221 0.0339783 0.91778 0.0212776 0.920885 0.0212776 0.910221 0.228652 0.981529 0.228652 0.982007 0.228652 0.983443 0.228652 0.982939 0.228652 0.982406</float_array>
+          <technique_common>
+            <accessor source="#cushion_1_0_TexCoord0_array_id" count="86" stride="2" offset="0">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="cushion_1_0_vtx_id">
+          <input semantic="POSITION" source="#cushion_1_0_Position_id" />
+        </vertices>
+        <triangles material="Mdl_0_Mtl_body_outline_mat" count="104">
+          <input semantic="VERTEX" source="#cushion_1_0_vtx_id" offset="0" />
+          <input semantic="TEXCOORD" source="#cushion_1_0_TexCoord0_id" offset="0" set="0" />
+          <p>31 29 30 31 81 29 31 30 32 31 82 81 31 32 37 31 85 82 31 37 36 31 84 85 31 36 33 31 83 84 31 33 34 31 45 83 31 34 35 31 35 45 11 3 10 11 2 3 11 10 12 11 19 2 11 12 20 11 38 19 11 20 25 11 25 38 3 1 10 3 2 1 19 38 49 19 5 2 19 49 46 19 46 5 20 26 25 1 2 0 38 54 49 38 25 70 38 58 54 38 70 60 38 60 58 46 17 5 46 49 48 46 47 17 46 50 47 26 76 25 25 76 70 2 4 0 2 5 4 54 58 53 54 53 49 49 53 48 60 70 63 60 55 58 60 63 42 60 42 55 17 47 22 17 16 5 17 22 21 17 21 16 16 4 5 50 52 47 76 71 70 53 58 57 57 58 55 63 44 42 63 70 61 63 64 44 63 61 62 63 62 64 22 41 21 22 47 51 22 56 41 22 51 56 51 47 52 51 52 56 71 69 70 69 62 61 69 61 70 55 42 41 55 41 56 55 56 59 59 56 52 44 43 42 43 21 41 43 41 42 40 39 27 40 79 39 40 27 28 40 80 79 27 23 28 80 78 79 80 77 78 23 24 28 23 6 24 77 65 78 77 66 65 6 8 24 6 7 8 66 67 65 66 68 67 7 9 8 7 13 9 68 73 67 68 72 73 13 14 9 13 15 14 72 74 73 72 75 74 15 18 14</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="cushion_0_0_ctrl_id" name="cushion_0_0_ctrl">
+      <skin source="#cushion_0_0_geo_id">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="cushion_0_0_ctrl_names_id" name="cushion_0_0_ctrl_names">
+          <Name_array id="cushion_0_0_ctrl_names_array_id" count="5">fel_gim_cushion root bound hand_L hand_R</Name_array>
+          <technique_common>
+            <accessor source="#cushion_0_0_ctrl_names_array_id" count="5" stride="1" offset="0">
+              <param name="JOINT" type="Name" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="cushion_0_0_ctrl_poses_id" name="cushion_0_0_ctrl_poses">
+          <float_array id="cushion_0_0_ctrl_poses_array_id" count="80">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 -0.2900171 -0.9570251 0.2589583 0 0.9570251 -0.2900171 -0.8545344 0 0 0 1 -0.3253485 0.6954933 -0.6407985 4.365108 -0.8917713 1.918448E-05 0.4527552 0.765985 0.3148286 0.7187153 0.6201612 -1.428316 0 0 0 1 -0.3253485 -0.6954932 0.6407986 -4.365108 -0.8917724 -1.629265E-05 -0.4527527 -0.7659905 0.314825 -0.7187154 -0.6201631 1.428313 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#cushion_0_0_ctrl_poses_array_id" count="5" stride="16" offset="0">
+              <param name="TRANSFORM" type="float4x4" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="cushion_0_0_ctrl_weights_id" name="cushion_0_0_ctrl_weights">
+          <float_array id="cushion_0_0_ctrl_weights_array_id" count="6">0.5 1 0.8 0.2 0.9 0.09999999</float_array>
+          <technique_common>
+            <accessor source="#cushion_0_0_ctrl_weights_array_id" count="6" stride="1" offset="0">
+              <param name="WEIGHT" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#cushion_0_0_ctrl_names_id" />
+          <input semantic="INV_BIND_MATRIX" source="#cushion_0_0_ctrl_poses_id" />
+        </joints>
+        <vertex_weights count="86">
+          <input semantic="JOINT" source="#cushion_0_0_ctrl_names_id" offset="0" />
+          <input semantic="WEIGHT" source="#cushion_0_0_ctrl_weights_id" offset="1" />
+          <vcount>2 2 1 1 1 1 1 1 1 1 1 2 2 2 2 1 1 1 1 1 2 1 1 2 2 1 1 2 2 1 1 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 2 2 1 2 1 1 2 1 2 2 2 1 2 1 1 1 2 1 2 1 1 1 1 1 2 2 2 2 1 1 2 2 2 2 2 2 2 2 1 1</vcount>
+          <v>1 0 3 0 1 0 3 0 3 1 3 1 1 1 1 1 3 1 3 1 3 1 3 1 3 1 1 2 3 3 1 2 3 3 1 0 3 0 1 0 3 0 1 1 1 1 1 1 1 1 1 1 1 4 3 5 1 1 1 1 1 2 3 3 1 2 3 3 1 1 1 1 1 4 3 5 1 4 3 5 1 1 1 1 1 4 3 5 1 2 3 3 1 0 3 0 1 1 1 1 3 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 2 0 1 0 2 0 2 1 1 0 2 0 2 1 2 1 1 0 2 0 2 1 1 0 2 0 1 0 2 0 1 0 2 0 2 1 1 0 2 0 2 1 1 1 4 1 1 0 4 0 4 1 1 0 4 0 4 1 4 1 4 1 4 1 4 1 1 2 4 3 1 2 4 3 1 0 4 0 1 0 4 0 1 1 1 1 1 4 4 5 1 2 4 3 1 2 4 3 1 4 4 5 1 4 4 5 1 4 4 5 1 2 4 3 1 0 4 0 4 1 4 1</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="cushion_1_0_ctrl_id" name="cushion_1_0_ctrl">
+      <skin source="#cushion_1_0_geo_id">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="cushion_1_0_ctrl_names_id" name="cushion_1_0_ctrl_names">
+          <Name_array id="cushion_1_0_ctrl_names_array_id" count="5">fel_gim_cushion root bound hand_L hand_R</Name_array>
+          <technique_common>
+            <accessor source="#cushion_1_0_ctrl_names_array_id" count="5" stride="1" offset="0">
+              <param name="JOINT" type="Name" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="cushion_1_0_ctrl_poses_id" name="cushion_1_0_ctrl_poses">
+          <float_array id="cushion_1_0_ctrl_poses_array_id" count="80">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 -0.2900171 -0.9570251 0.2589583 0 0.9570251 -0.2900171 -0.8545344 0 0 0 1 -0.3253485 0.6954933 -0.6407985 4.365108 -0.8917713 1.918448E-05 0.4527552 0.765985 0.3148286 0.7187153 0.6201612 -1.428316 0 0 0 1 -0.3253485 -0.6954932 0.6407986 -4.365108 -0.8917724 -1.629265E-05 -0.4527527 -0.7659905 0.314825 -0.7187154 -0.6201631 1.428313 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#cushion_1_0_ctrl_poses_array_id" count="5" stride="16" offset="0">
+              <param name="TRANSFORM" type="float4x4" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="cushion_1_0_ctrl_weights_id" name="cushion_1_0_ctrl_weights">
+          <float_array id="cushion_1_0_ctrl_weights_array_id" count="6">0.5 1 0.8 0.2 0.9 0.09999999</float_array>
+          <technique_common>
+            <accessor source="#cushion_1_0_ctrl_weights_array_id" count="6" stride="1" offset="0">
+              <param name="WEIGHT" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#cushion_1_0_ctrl_names_id" />
+          <input semantic="INV_BIND_MATRIX" source="#cushion_1_0_ctrl_poses_id" />
+        </joints>
+        <vertex_weights count="86">
+          <input semantic="JOINT" source="#cushion_1_0_ctrl_names_id" offset="0" />
+          <input semantic="WEIGHT" source="#cushion_1_0_ctrl_weights_id" offset="1" />
+          <vcount>2 1 2 1 1 1 1 1 1 1 1 2 2 2 2 1 1 1 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 2 1 1 1 1 1 1 1 1 1 1 1 1 2 2 1 2 1 2 1 1 2 2 2 1 2 1 1 1 1 2 2 1 1 1 1 1 2 2 2 2 1 1 2 2 2 2 2 2 2 2 1 1</vcount>
+          <v>1 0 3 0 3 1 1 0 3 0 3 1 1 1 1 1 3 1 3 1 3 1 3 1 3 1 1 2 3 3 1 2 3 3 1 0 3 0 1 0 3 0 1 1 1 1 1 1 1 1 1 1 1 4 3 5 1 1 1 1 1 2 3 3 1 2 3 3 1 1 1 1 1 4 3 5 1 4 3 5 1 1 1 4 3 5 1 1 1 2 3 3 1 0 3 0 1 1 1 1 3 1 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 2 0 1 0 2 0 2 1 1 0 2 0 2 1 1 0 2 0 2 1 2 1 1 0 2 0 1 0 2 0 1 0 2 0 2 1 1 0 2 0 2 1 1 1 4 1 4 1 1 0 4 0 1 0 4 0 4 1 4 1 4 1 4 1 4 1 1 2 4 3 1 2 4 3 1 0 4 0 1 0 4 0 1 1 1 1 1 4 4 5 1 2 4 3 1 2 4 3 1 4 4 5 1 4 4 5 1 4 4 5 1 2 4 3 1 0 4 0 4 1 4 1</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_visual_scenes>
+    <visual_scene id="fel_gim_cushion_00_id" name="fel_gim_cushion_00">
+      <node id="fel_gim_cushion_bone_id" name="fel_gim_cushion" sid="fel_gim_cushion" type="JOINT">
+        <translate sid="translate">0 0 0</translate>
+        <rotate sid="rotateZ">0 0 1 0</rotate>
+        <rotate sid="rotateY">0 1 0 0</rotate>
+        <rotate sid="rotateX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <node id="root_bone_id" name="root" sid="root" type="JOINT">
+          <translate sid="translate">0 0 0</translate>
+          <rotate sid="rotateZ">0 0 1 0</rotate>
+          <rotate sid="rotateY">0 1 0 0</rotate>
+          <rotate sid="rotateX">1 0 0 0</rotate>
+          <scale sid="scale">1 1 1</scale>
+          <node id="bound_bone_id" name="bound" sid="bound" type="JOINT">
+            <translate sid="translate">0 0.892907 0</translate>
+            <rotate sid="rotateZ">0 0 1 0</rotate>
+            <rotate sid="rotateY">0 1 0 0</rotate>
+            <rotate sid="rotateX">1 0 0 -106.8589</rotate>
+            <scale sid="scale">1 1 1</scale>
+          </node>
+          <node id="hand_L_bone_id" name="hand_L" sid="hand_L" type="JOINT">
+            <translate sid="translate">2.55241 -2.00897 3.33562</translate>
+            <rotate sid="rotateZ">0 0 1 115.07</rotate>
+            <rotate sid="rotateY">0 1 0 39.84819</rotate>
+            <rotate sid="rotateX">1 0 0 36.13169</rotate>
+            <scale sid="scale">1 1 1</scale>
+          </node>
+          <node id="hand_R_bone_id" name="hand_R" sid="hand_R" type="JOINT">
+            <translate sid="translate">-2.55241 -2.00897 3.33562</translate>
+            <rotate sid="rotateZ">0 0 1 -115.07</rotate>
+            <rotate sid="rotateY">0 1 0 -39.84819</rotate>
+            <rotate sid="rotateX">1 0 0 -143.8685</rotate>
+            <scale sid="scale">1 1 1</scale>
+          </node>
+        </node>
+      </node>
+      <node id="cushion_0_0_node_id" name="cushion_0_0_node" type="NODE">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_controller url="#cushion_0_0_ctrl_id">
+          <skeleton>#fel_gim_cushion_bone_id</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mdl_0_Mtl_body_fur_mat" target="#body_fur_mat_mat_id" />
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="cushion_1_0_node_id" name="cushion_1_0_node" type="NODE">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_controller url="#cushion_1_0_ctrl_id">
+          <skeleton>#fel_gim_cushion_bone_id</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mdl_0_Mtl_body_outline_mat" target="#body_outline_mat_mat_id" />
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#fel_gim_cushion_00_id" />
+  </scene>
+</COLLADA>

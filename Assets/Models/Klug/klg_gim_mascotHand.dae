@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<COLLADA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.4.1" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+  <asset>
+    <created>2019-01-19T17:13:14.5121349+02:00</created>
+    <modified>2019-01-19T17:13:14.5121349+02:00</modified>
+  </asset>
+    <library_images>
+        <image id="ID5">
+            <init_from>klg_gim_D.png</init_from>
+        </image>
+        <image id="ID10">
+            <init_from>klg_gim_D.png</init_from>
+        </image>
+    </library_images>
+  <library_materials>
+    <material id="gim_outline_mat_mat_id" name="gim_outline_mat_mat">
+      <instance_effect url="#gim_outline_mat_eff_id" />
+    </material>
+    <material id="gim_sharp_mat_mat_id" name="gim_sharp_mat_mat">
+      <instance_effect url="#gim_sharp_mat_eff_id" />
+    </material>
+  </library_materials>
+  <library_effects>
+    <effect id="gim_outline_mat_eff_id" name="gim_outline_mat_eff">
+            <profile_COMMON>
+                <newparam sid="ID11">
+                    <surface type="2D">
+                        <init_from>ID10</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="ID12">
+                    <sampler2D>
+                        <source>ID11</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="COMMON">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="ID12" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+    </effect>
+    <effect id="gim_sharp_mat_eff_id" name="gim_sharp_mat_eff">
+            <profile_COMMON>
+                <newparam sid="ID6">
+                    <surface type="2D">
+                        <init_from>ID5</init_from>
+                    </surface>
+                </newparam>
+                <newparam sid="ID7">
+                    <sampler2D>
+                        <source>ID6</source>
+                    </sampler2D>
+                </newparam>
+                <technique sid="COMMON">
+                    <blinn>
+                        <diffuse>
+                            <texture texture="ID7" texcoord="UVSET0"/>
+                        </diffuse>
+                    </blinn>
+                </technique>
+            </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_geometries>
+    <geometry id="hand_0_0_geo_id" name="hand_0_0">
+      <mesh>
+        <source id="hand_0_0_Position_id" name="hand_0_0_Position">
+          <float_array id="hand_0_0_Position_array_id" count="156">0.335607 2.50302 -0.0640011 -0.00633156 2.49545 -0.16281 -0.181447 3.09393 -0.00949001 -0.521678 3.15942 -0.164099 -0.175065 1.76632 -0.0190296 -0.466569 1.79359 -0.115672 -0.161541 1.17007 -0.120437 -0.29275 1.14526 0.0114269 -0.674394 1.81303 0.0233355 -0.215363 2.46594 0.00634098 -0.458691 1.79285 0.173536 -0.152974 1.19299 0.119966 0.0115364 1.21108 -0.0209255 0.0580006 2.51028 0.147362 -0.215363 2.46594 0.00634098 -0.674394 1.81303 0.0233355 0.351965 0 0 -0.29275 1.14526 0.0114269 -0.681566 3.17437 0.0145979 -0.391934 3.16096 0.241693 -0.681566 3.17437 0.0145979 0.493989 3.78809 -0.286835 0.269659 3.9201 -0.418172 -0.0748442 4.7003 0.451211 0.0646544 4.7874 0.316483 -0.432581 4.58596 -0.0698986 -0.299348 4.68719 -0.197482 0.386889 4.28824 0.0809746 0.269659 3.9201 -0.418172 0.382465 3.90955 0.138511 0.310149 4.46821 0.391761 0.559838 4.44705 0.359246 0.332865 4.54963 0.211422 0.587586 4.52801 0.177902 0.312582 4.14553 0.234278 0.562477 4.15308 0.223968 0.683924 4.15216 -0.0264835 0.587586 4.52801 0.177902 0.332865 4.54963 0.211422 0.386889 4.28824 0.0809746 0.493989 3.78809 -0.286835 0.312582 4.14553 0.234278 0.0646544 4.7874 0.316483 0.386889 4.28824 0.0809746 -0.0520144 3.95019 -0.125003 -0.0520144 3.95019 -0.125003 -0.0520144 3.95019 -0.125003 -0.299348 4.68719 -0.197482 0.269659 3.9201 -0.418172 0.382465 3.90955 0.138511 0.382465 3.90955 0.138511 0.332865 4.54963 0.211422</float_array>
+          <technique_common>
+            <accessor source="#hand_0_0_Position_array_id" count="52" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="hand_0_0_Normal_id" name="hand_0_0_Normal">
+          <float_array id="hand_0_0_Normal_array_id" count="156">0.991481 -0.0102711 -0.129846 0.0657814 -0.00451688 -0.997824 0.915819 -0.316734 -0.246893 -0.387916 -0.0401022 -0.920822 0.961023 -0.260695 -0.092053 -0.260641 -0.00694125 -0.965411 -0.0887913 -0.0967232 -0.991343 -0.870301 -0.49031 0.0466036 -0.985361 0.139236 0.0983704 -0.97649 -0.0488096 0.209965 -0.0986506 -0.0172593 0.994972 0.102148 -0.0462618 0.993693 0.946682 0.31462 -0.0693299 0.306689 -0.0387642 0.95102 -0.97649 -0.0488096 0.209965 -0.985361 0.139236 0.0983704 0.712806 -0.689123 0.130449 -0.870301 -0.49031 0.0466036 -0.930365 0.245128 0.272642 -0.139141 0.0624294 0.988303 -0.930365 0.245128 0.272642 0.691782 -0.668882 -0.272092 0.0270543 -0.0401812 -0.998826 -0.479795 -0.170429 0.860669 0.504736 0.856237 0.109999 -0.924567 -0.320551 0.205968 -0.26825 0.49303 -0.827625 0.45186 0.706264 -0.54499 0.0270543 -0.0401812 -0.998826 0.337712 -0.313297 0.887578 -0.590727 0.0910257 0.801721 0.56382 0.057479 0.823895 -0.542215 0.688301 -0.481918 0.611431 0.67202 -0.417782 -0.375945 -0.441068 0.814938 0.643988 -0.34967 0.680449 0.85368 0.280813 -0.438606 0.611431 0.67202 -0.417782 -0.542215 0.688301 -0.481918 0.45186 0.706264 -0.54499 0.691782 -0.668882 -0.272092 -0.375945 -0.441068 0.814938 0.504736 0.856237 0.109999 0.45186 0.706264 -0.54499 -0.97839 0.122307 0.166718 -0.97839 0.122307 0.166718 -0.97839 0.122307 0.166718 -0.26825 0.49303 -0.827625 0.0270543 -0.0401812 -0.998826 0.337712 -0.313297 0.887578 0.337712 -0.313297 0.887578 -0.542215 0.688301 -0.481918</float_array>
+          <technique_common>
+            <accessor source="#hand_0_0_Normal_array_id" count="52" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="hand_0_0_TexCoord0_id" name="hand_0_0_TexCoord0">
+          <float_array id="hand_0_0_TexCoord0_array_id" count="104">0.449219 0.578396 0.468009 0.578396 0.449219 0.641229 0.468009 0.641229 0.449219 0.502498 0.468009 0.502498 0.468009 0.42845 0.487334 0.42845 0.487334 0.502498 0.487334 0.578396 0.430429 0.502498 0.430429 0.42845 0.449219 0.42845 0.430429 0.578396 0.411104 0.578396 0.411104 0.502498 0.449219 0.295462 0.411104 0.42845 0.411104 0.641229 0.430429 0.641229 0.487334 0.641229 0.449219 0.720163 0.468009 0.720163 0.268452 0.151537 0.268452 0.172029 0.20752 0.151537 0.20752 0.172029 0.268452 0.23851 0.20752 0.272653 0.430429 0.720163 0.334937 0.281939 0.316771 0.263117 0.34664 0.264636 0.32763 0.245297 0.304784 0.304794 0.291702 0.283677 0.269906 0.272067 0.302605 0.246543 0.347279 0.29855 0.323427 0.318613 0.22823 0.29659 0.268452 0.0741115 0.289887 0.151537 0.29135 0.0741115 0.411104 0.720163 0.20752 0.0741115 0.487334 0.720163 0.185885 0.151537 0.168346 0.0517956 0.257836 0.0485746 0.275502 0.312076 0.294513 0.220337</float_array>
+          <technique_common>
+            <accessor source="#hand_0_0_TexCoord0_array_id" count="52" stride="2" offset="0">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="hand_0_0_vtx_id">
+          <input semantic="POSITION" source="#hand_0_0_Position_id" />
+          <input semantic="NORMAL" source="#hand_0_0_Normal_id" />
+        </vertices>
+        <triangles material="Mdl_0_Mtl_gim_sharp_mat" count="62">
+          <input semantic="VERTEX" source="#hand_0_0_vtx_id" offset="0" />
+          <input semantic="TEXCOORD" source="#hand_0_0_TexCoord0_id" offset="0" set="0" />
+          <p>2 0 1 2 13 0 2 1 3 2 19 13 2 3 22 2 29 19 2 22 21 2 21 29 0 4 1 0 13 4 3 46 22 3 1 9 3 20 46 3 9 20 19 29 44 19 14 13 19 44 18 19 18 14 4 5 1 4 13 10 4 6 5 4 10 11 4 12 6 4 11 12 13 14 10 1 5 9 6 12 16 6 7 5 6 16 7 12 11 16 14 15 10 9 5 8 8 5 7 11 17 16 11 10 17 17 10 15 36 37 35 36 27 37 36 35 50 36 28 27 36 50 40 36 40 28 37 31 35 37 27 51 50 35 34 35 31 34 28 26 27 31 30 34 31 32 30 31 33 32 26 24 27 26 25 24 34 30 39 25 23 24 25 41 23 25 45 41 25 47 45 30 38 39 23 41 42 47 48 45 41 43 42 41 45 49</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="hand_1_0_geo_id" name="hand_1_0">
+      <mesh>
+        <source id="hand_1_0_Position_id" name="hand_1_0_Position">
+          <float_array id="hand_1_0_Position_array_id" count="156">-0.56481 3.15663 -0.254276 -0.00204914 2.49703 -0.262706 -0.087676 3.08879 -0.0438513 0.434737 2.50747 -0.0763873 -0.491454 1.79058 -0.212479 -0.0774097 1.75343 -0.0362702 -0.774103 1.81883 0.0282777 -0.376036 1.09013 0.016276 -0.169606 1.15685 -0.219231 -0.314953 2.46535 0.0153626 -0.47207 1.78682 0.272453 -0.143856 1.18463 0.219197 0.1081 1.23451 -0.0321747 0.0896591 2.51465 0.242117 -0.314953 2.46535 0.0153626 -0.774103 1.81883 0.0282777 0.390708 -0.0921899 0.000236918 -0.376036 1.09013 0.016276 -0.403824 3.16493 0.340904 -0.780549 3.1857 0.0232034 -0.780549 3.1857 0.0232034 0.274433 3.93563 -0.516842 0.572932 3.74561 -0.331143 -0.331772 4.7527 -0.265728 0.107582 4.87251 0.346699 -0.532036 4.58444 -0.0595795 -0.0987561 4.72848 0.544131 0.407286 4.3621 0.016724 0.274433 3.93563 -0.516842 0.406545 3.86406 0.224252 0.65567 4.59782 0.155757 0.623241 4.47546 0.43117 0.281838 4.62728 0.174446 0.253426 4.50817 0.463771 0.62636 4.12095 0.293872 0.286771 4.118 0.326884 0.779887 4.16166 -0.0529563 0.65567 4.59782 0.155757 0.281838 4.62728 0.174446 0.407286 4.3621 0.016724 0.572932 3.74561 -0.331143 0.107582 4.87251 0.346699 0.286771 4.118 0.326884 0.407286 4.3621 0.016724 -0.151401 3.95841 -0.117612 -0.151401 3.95841 -0.117612 -0.151401 3.95841 -0.117612 0.274433 3.93563 -0.516842 -0.331772 4.7527 -0.265728 0.406545 3.86406 0.224252 0.406545 3.86406 0.224252 0.281838 4.62728 0.174446</float_array>
+          <technique_common>
+            <accessor source="#hand_1_0_Position_array_id" count="52" stride="3" offset="0">
+              <param name="X" type="float" />
+              <param name="Y" type="float" />
+              <param name="Z" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="hand_1_0_TexCoord0_id" name="hand_1_0_TexCoord0">
+          <float_array id="hand_1_0_TexCoord0_array_id" count="104">0.468009 0.641229 0.468009 0.578396 0.449219 0.641229 0.449219 0.578396 0.468009 0.502498 0.449219 0.502498 0.487334 0.502498 0.487334 0.42845 0.468009 0.42845 0.487334 0.578396 0.430429 0.502498 0.430429 0.42845 0.449219 0.42845 0.430429 0.578396 0.411104 0.578396 0.411104 0.502498 0.449219 0.295462 0.411104 0.42845 0.430429 0.641229 0.411104 0.641229 0.487334 0.641229 0.468009 0.720163 0.449219 0.720163 0.20752 0.172029 0.268452 0.172029 0.20752 0.151537 0.268452 0.151537 0.268452 0.23851 0.20752 0.272653 0.430429 0.720163 0.32763 0.245297 0.316771 0.263117 0.34664 0.264636 0.334937 0.281939 0.291702 0.283677 0.304784 0.304794 0.269906 0.272067 0.302605 0.246543 0.347279 0.29855 0.323427 0.318613 0.22823 0.29659 0.289887 0.151537 0.268452 0.0741115 0.29135 0.0741115 0.411104 0.720163 0.20752 0.0741115 0.487334 0.720163 0.168346 0.0517956 0.185885 0.151537 0.257836 0.0485746 0.275502 0.312076 0.294513 0.220337</float_array>
+          <technique_common>
+            <accessor source="#hand_1_0_TexCoord0_array_id" count="52" stride="2" offset="0">
+              <param name="S" type="float" />
+              <param name="T" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="hand_1_0_vtx_id">
+          <input semantic="POSITION" source="#hand_1_0_Position_id" />
+        </vertices>
+        <triangles material="Mdl_0_Mtl_gim_outline_mat" count="62">
+          <input semantic="VERTEX" source="#hand_1_0_vtx_id" offset="0" />
+          <input semantic="TEXCOORD" source="#hand_1_0_TexCoord0_id" offset="0" set="0" />
+          <p>2 0 1 2 21 0 2 1 3 2 22 21 2 3 13 2 29 22 2 13 18 2 18 29 0 9 1 0 21 46 0 20 9 0 46 20 3 5 13 3 1 5 18 44 29 18 13 14 18 19 44 18 14 19 9 4 1 9 6 4 1 4 5 13 10 14 13 5 10 6 7 4 14 10 15 5 4 8 5 11 10 5 8 12 5 12 11 4 7 8 15 10 17 10 11 17 12 8 16 12 16 11 16 8 7 16 17 11 36 34 37 36 50 34 36 37 27 36 40 50 36 27 28 36 28 40 34 31 37 34 50 35 34 35 31 27 23 28 27 37 51 27 24 23 35 33 31 35 39 33 24 25 23 24 26 25 31 33 32 31 32 30 39 38 33 26 45 25 26 42 45 26 41 42 25 45 48 41 43 42 45 47 48 45 42 49</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="hand_0_0_ctrl_id" name="hand_0_0_ctrl">
+      <skin source="#hand_0_0_geo_id">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="hand_0_0_ctrl_names_id" name="hand_0_0_ctrl_names">
+          <Name_array id="hand_0_0_ctrl_names_array_id" count="3">klg_gim_mascotHand root center</Name_array>
+          <technique_common>
+            <accessor source="#hand_0_0_ctrl_names_array_id" count="3" stride="1" offset="0">
+              <param name="JOINT" type="Name" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="hand_0_0_ctrl_poses_id" name="hand_0_0_ctrl_poses">
+          <float_array id="hand_0_0_ctrl_poses_array_id" count="48">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 -3.55746E-06 -1 0 0 1 -3.55746E-06 0 0 0 0 1 1 0 0 0 0 -3.55746E-06 -1 4.547474E-13 0 1 -3.55746E-06 -1.82687 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#hand_0_0_ctrl_poses_array_id" count="3" stride="16" offset="0">
+              <param name="TRANSFORM" type="float4x4" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="hand_0_0_ctrl_weights_id" name="hand_0_0_ctrl_weights">
+          <float_array id="hand_0_0_ctrl_weights_array_id" count="4">0.2 0.8 1 0.5</float_array>
+          <technique_common>
+            <accessor source="#hand_0_0_ctrl_weights_array_id" count="4" stride="1" offset="0">
+              <param name="WEIGHT" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#hand_0_0_ctrl_names_id" />
+          <input semantic="INV_BIND_MATRIX" source="#hand_0_0_ctrl_poses_id" />
+        </joints>
+        <vertex_weights count="52">
+          <input semantic="JOINT" source="#hand_0_0_ctrl_names_id" offset="0" />
+          <input semantic="WEIGHT" source="#hand_0_0_ctrl_weights_id" offset="1" />
+          <vcount>2 2 1 1 2 2 2 2 2 2 2 2 2 2 2 2 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+          <v>1 0 2 1 1 0 2 1 2 2 2 2 1 3 2 3 1 3 2 3 1 1 2 0 1 1 2 0 1 3 2 3 1 0 2 1 1 3 2 3 1 1 2 0 1 1 2 0 1 0 2 1 1 0 2 1 1 3 2 3 1 2 1 1 2 0 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="hand_1_0_ctrl_id" name="hand_1_0_ctrl">
+      <skin source="#hand_1_0_geo_id">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="hand_1_0_ctrl_names_id" name="hand_1_0_ctrl_names">
+          <Name_array id="hand_1_0_ctrl_names_array_id" count="3">klg_gim_mascotHand root center</Name_array>
+          <technique_common>
+            <accessor source="#hand_1_0_ctrl_names_array_id" count="3" stride="1" offset="0">
+              <param name="JOINT" type="Name" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="hand_1_0_ctrl_poses_id" name="hand_1_0_ctrl_poses">
+          <float_array id="hand_1_0_ctrl_poses_array_id" count="48">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 -3.55746E-06 -1 0 0 1 -3.55746E-06 0 0 0 0 1 1 0 0 0 0 -3.55746E-06 -1 4.547474E-13 0 1 -3.55746E-06 -1.82687 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#hand_1_0_ctrl_poses_array_id" count="3" stride="16" offset="0">
+              <param name="TRANSFORM" type="float4x4" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="hand_1_0_ctrl_weights_id" name="hand_1_0_ctrl_weights">
+          <float_array id="hand_1_0_ctrl_weights_array_id" count="4">1 0.8 0.2 0.5</float_array>
+          <technique_common>
+            <accessor source="#hand_1_0_ctrl_weights_array_id" count="4" stride="1" offset="0">
+              <param name="WEIGHT" type="float" />
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#hand_1_0_ctrl_names_id" />
+          <input semantic="INV_BIND_MATRIX" source="#hand_1_0_ctrl_poses_id" />
+        </joints>
+        <vertex_weights count="52">
+          <input semantic="JOINT" source="#hand_1_0_ctrl_names_id" offset="0" />
+          <input semantic="WEIGHT" source="#hand_1_0_ctrl_weights_id" offset="1" />
+          <vcount>1 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+          <v>2 0 2 1 1 2 2 0 2 1 1 2 2 3 1 3 2 3 1 3 2 3 1 3 2 2 1 1 2 2 1 1 2 1 1 2 2 3 1 3 2 2 1 1 2 2 1 1 2 1 1 2 2 1 1 2 2 3 1 3 1 0 2 2 1 1 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_visual_scenes>
+    <visual_scene id="klg_gim_mascotHand_00_id" name="klg_gim_mascotHand_00">
+      <node id="klg_gim_mascotHand_bone_id" name="klg_gim_mascotHand" sid="klg_gim_mascotHand" type="JOINT">
+        <translate sid="translate">0 0 0</translate>
+        <rotate sid="rotateZ">0 0 1 0</rotate>
+        <rotate sid="rotateY">0 1 0 0</rotate>
+        <rotate sid="rotateX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <node id="root_bone_id" name="root" sid="root" type="JOINT">
+          <translate sid="translate">0 0 0</translate>
+          <rotate sid="rotateZ">0 0 1 0</rotate>
+          <rotate sid="rotateY">0 1 0 0</rotate>
+          <rotate sid="rotateX">1 0 0 -90.00021</rotate>
+          <scale sid="scale">1 1 1</scale>
+          <node id="center_bone_id" name="center" sid="center" type="JOINT">
+            <translate sid="translate">0 0 1.82687</translate>
+            <rotate sid="rotateZ">0 0 1 0</rotate>
+            <rotate sid="rotateY">0 1 0 0</rotate>
+            <rotate sid="rotateX">1 0 0 0</rotate>
+            <scale sid="scale">1 1 1</scale>
+          </node>
+        </node>
+      </node>
+      <node id="hand_0_0_node_id" name="hand_0_0_node" type="NODE">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_controller url="#hand_0_0_ctrl_id">
+          <skeleton>#klg_gim_mascotHand_bone_id</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mdl_0_Mtl_gim_sharp_mat" target="#gim_sharp_mat_mat_id" />
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="hand_1_0_node_id" name="hand_1_0_node" type="NODE">
+        <matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_controller url="#hand_1_0_ctrl_id">
+          <skeleton>#klg_gim_mascotHand_bone_id</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Mdl_0_Mtl_gim_outline_mat" target="#gim_outline_mat_mat_id" />
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#klg_gim_mascotHand_00_id" />
+  </scene>
+</COLLADA>
