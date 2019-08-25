@@ -1,28 +1,75 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
+using UnityEngine.AI;
 
 
 public class Player : TurnManager
 {
-    PlayerManager m_playerManager;
-    public int playerNumber;
+    public Camera cam;
+    public NavMeshAgent agent;
 
-    // global flag for enabling and disabling user input
-    bool m_inputEnabled = false;
-    public bool InputEnabled { get { return m_inputEnabled; } set { m_inputEnabled = value; } }
+    public ThirdPersonCharacter character;
+
+    public int playerNumber;
+    public Follower[] followers;
+    public int health = 3;
 
     protected override void Awake()
     {
         base.Awake();
-        m_playerManager = gameObject.GetComponent<PlayerManager>();
+        cam = Camera.main;
+        agent.updateRotation = false;
     }
 
     private void Update()
     {
-        if (m_inputEnabled)
+        if (InputEnabled)
         {
-            m_playerManager.m_canMove = true;
+            if ((Input.GetMouseButtonDown(0)) && InputEnabled)
+            {
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {
+                    if (hit.collider.tag == "House")
+                    {
+                        agent.SetDestination(hit.point);
+                    }
+                }
+            }
+        }
+        if (!agent.pathPending)
+        {
+            if (agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    this.GetComponentInChildren<Animator>().SetBool("isWalking", false);
+                }
+            }
+        }
+        if (agent.remainingDistance > agent.stoppingDistance)
+        {
+            character.Move(agent.desiredVelocity, false, false);
+        }
+        else
+        {
+            character.Move(Vector3.zero, false, false);
+        }
+
+        switch (health)
+        {
+            case 0:
+                Debug.Log("player is dead" + gameObject.name);
+                break;
+            case 1:
+                followers[1].isDead = true;
+                break;
+            case 2:
+                followers[0].isDead = true;
+                break;
         }
     }
 
@@ -34,8 +81,7 @@ public class Player : TurnManager
 
     public void PlayTurn()
     {
-        m_inputEnabled = true;
-        m_playerManager.m_canMove = true;
+        InputEnabled = true;
         Debug.Log(gameObject.name + "'s turn");
     }
 
@@ -44,8 +90,12 @@ public class Player : TurnManager
     {
         // tell the GameManager the PlayerTurn is complete
         base.FinishTurn();
-        m_isTurnComplete = true;
-        Debug.Log("finished turn");
+        Debug.Log(gameObject.name + "finished turn");
+        foreach (Follower follower in followers)
+        {
+            follower.gameObject.SetActive(false);
+        }
+        InputEnabled = false;
         gameObject.SetActive(false);
     }
 }

@@ -12,6 +12,10 @@ public class TurnManager : MonoBehaviour
     protected bool m_isTurnComplete = false;
     public bool IsTurnComplete { get { return m_isTurnComplete; } set { m_isTurnComplete = value; }}
 
+    // global flag for enabling and disabling user input
+    bool m_inputEnabled = false;
+    public bool InputEnabled { get { return m_inputEnabled; } set { m_inputEnabled = value; } }
+
     // initialize fields
     protected virtual void Awake()
     {

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 [System.Serializable]
 public enum Turn
@@ -15,13 +16,23 @@ public enum Turn
 public class GameManager : MonoBehaviour
 {
     // reference to PlayerManager
-    public Player m_player;
+    public Player m_player1;
 
     public List<Enemy> m_enemies;
     public List<Player> m_players;
     public List<House> m_houses;
 
+    public Transform[] m_spawnPoints;
+    public Transform[] m_enemySpawnPoints;
     public AudioManager m_audioManager;
+    public GameObject m_roundPrefab;
+    public NavMeshSurface m_surface;
+
+    float roundLocation;
+    Vector3 m_cameraTarget;
+
+    Camera cam,zombieCam;
+    bool m_canMoveCamera;
 
     Turn m_currentTurn = Turn.Player;
     public Turn CurrentTurn { get { return m_currentTurn; } }
@@ -55,19 +66,36 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // populate Board and PlayerManager components
         m_enemies = (Object.FindObjectsOfType<Enemy>() as Enemy[]).ToList();
-        m_players = (Object.FindObjectsOfType<Player>() as Player[]).ToList();
         m_houses = (Object.FindObjectsOfType<House>() as House[]).ToList();
-
         m_audioManager = (Object.FindObjectOfType<AudioManager>().GetComponent<AudioManager>());
+        cam = Camera.main;
+        zombieCam = GameObject.FindGameObjectWithTag("ZombieCamera").GetComponent<Camera>();
+        zombieCam.gameObject.SetActive(false);
+        m_cameraTarget = new Vector3(0f, 10f, -9);
     }
 
     void Start()
     {
-            StartCoroutine("RunGameLoop");
+        StartCoroutine("RunGameLoop");
     }
 
+    void Update()
+    {
+        if (m_canMoveCamera)
+        {
+            float step = 5f * Time.deltaTime; // calculate distance to move
+            cam.transform.position = Vector3.MoveTowards(cam.transform.position, m_cameraTarget, step);
+
+            // Check if the position of the cube and sphere are approximately equal.
+            if (Vector3.Distance(cam.transform.position, m_cameraTarget) < 0.001f)
+            {
+                // Swap the position of the cylinder.
+                cam.transform.position = m_cameraTarget;
+                m_canMoveCamera = false;
+            }
+        }
+    }
     // run the main game loop, separated into different stages/coroutines
     IEnumerator RunGameLoop()
     {
@@ -86,7 +114,7 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("START LEVEL");
-        m_player.InputEnabled = false;
+        m_player1.InputEnabled = false;
 
         while (!m_hasLevelStarted)
         {
@@ -109,7 +137,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("PLAY LEVEL");
         m_isGamePlaying = true;
         yield return new WaitForSeconds(delay);
-        m_player.InputEnabled = true;
+        m_player1.InputEnabled = true;
 
         // trigger any events as we start playing the level
         if (playLevelEvent != null)
@@ -162,7 +190,7 @@ public class GameManager : MonoBehaviour
     IEnumerator EndLevelRoutine()
     {
         Debug.Log("END LEVEL");
-        m_player.InputEnabled = false;
+        m_player1.InputEnabled = false;
 
         // run events when we end the level
         if (endLevelEvent != null)
@@ -209,9 +237,8 @@ public class GameManager : MonoBehaviour
 
         foreach (Player player in m_players)
         {
-            if (player != null && !player.InputEnabled)
+            if (player != null && !player.IsTurnComplete)
             {
-                Debug.Log("hi");
                 player.PlayTurn();
                 break;
             }
@@ -230,14 +257,14 @@ public class GameManager : MonoBehaviour
                 enemy.IsTurnComplete = false;
 
                 enemy.StartPlayTurn();
-
+             
                 m_audioManager.PlaySFX(1);
             }
         }
     }
 
     // have all of the players completed their turns?
-    bool IsPlayerTurnComplete()
+    bool AllPlayerTurnsComplete()
     {
         foreach (Player player in m_players)
         {
@@ -251,7 +278,7 @@ public class GameManager : MonoBehaviour
     }
 
     // have all of the enemies completed their turns?
-    bool IsEnemyTurnComplete()
+    bool AllEnemyTurnsComplete()
     {
         foreach (Enemy enemy in m_enemies)
         {
@@ -260,6 +287,7 @@ public class GameManager : MonoBehaviour
                 return false;
             }
         }
+        Debug.Log("all enemies finished");
         return true;
     }
 
@@ -267,18 +295,85 @@ public class GameManager : MonoBehaviour
     public void UpdateTurn()
     {
         Debug.Log("update turn");
-            bool isPlayerTurnComplete = IsPlayerTurnComplete();
-            bool isEnemyTurnComplete = IsEnemyTurnComplete();
+            bool allPlayerTurnsComplete = AllPlayerTurnsComplete();
+            bool allEnemyTurnsComplete = AllEnemyTurnsComplete();
 
-            if (isPlayerTurnComplete)
+            if (allPlayerTurnsComplete)
             {
                 PlayEnemyTurn();
-                Debug.Log("play enemy turn");
+                Debug.Log(" all player turns complete, play enemy turn");
             }
             else
             {
                 PlayPlayerTurn();
-                Debug.Log("play player turn");
+                Debug.Log("next player turn");
             }
+    }
+
+    public void StartNextRound()
+    {
+        StartCoroutine(StartNextRoundRoutine());
+    }
+
+    IEnumerator StartNextRoundRoutine()
+    {
+        Debug.Log("Start next round");
+        yield return new WaitForSeconds(2f);
+        ChangeCamera();
+        m_cameraTarget += new Vector3(0f, 0f, 22);
+        roundLocation += 22;
+        m_canMoveCamera = true;
+
+        for (int i = 0; i < m_spawnPoints.Length; i++)
+        {
+            m_spawnPoints[i].transform.position += new Vector3(0f, 0f, 22f);
+        }
+
+        for (int i = 0; i < m_enemySpawnPoints.Length; i++)
+        {
+            m_enemySpawnPoints[i].transform.position += new Vector3(0f, 0f, 22f);
+        }
+
+        for (int i = 0; i < m_houses.Count; i++)
+        {
+            m_houses[i].gameObject.SetActive(false);
+        }
+        m_houses.Clear();
+
+        Instantiate(m_roundPrefab, new Vector3 (0f, 0f, roundLocation),Quaternion.identity);
+        m_surface.BuildNavMesh();
+        m_houses = (Object.FindObjectsOfType<House>() as House[]).ToList();
+
+        for (int i = 0; i < m_players.Count; i++)
+        {
+            //m_players[i].transform.position = m_spawnPoints[i].transform.position;
+            m_players[i].gameObject.SetActive(true);
+            m_players[i].agent.SetDestination(m_spawnPoints[i].transform.position);
+        }
+
+        for (int i = 0; i < m_enemies.Count; i++)
+        {
+            //m_enemies[i].transform.position = m_enemySpawnPoints[i].transform.position;
+            m_enemies[i].gameObject.SetActive(true);
+            m_enemies[i].m_enemyManager.agent.SetDestination(m_enemySpawnPoints[i].transform.position);
+        }
+        yield return new WaitForSeconds(3f);
+        foreach(Player player in m_players){player.InputEnabled = false; player.IsTurnComplete = false; }
+        foreach (Enemy enemy in m_enemies) { enemy.InputEnabled = false; enemy.IsTurnComplete = false; }
+        m_player1.PlayTurn();
+    }
+
+    void ChangeCamera()
+    {
+        if (cam.gameObject.activeSelf == false)
+        {
+            cam.gameObject.SetActive(true);
+            zombieCam.gameObject.SetActive(false);
+        }
+        else
+        {
+            zombieCam.gameObject.SetActive(true);
+            cam.gameObject.SetActive(false);
+        }
     }
 }

@@ -7,6 +7,7 @@ public class House : MonoBehaviour
     public List<Player> m_ReceivedPlayers;
     public GameObject num1, num2, num3, num4;
     int whatPlayer;
+    Follower[] m_followers;
 
     private void OnTriggerEnter(Collider other)
     {

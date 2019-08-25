@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     public Camera cam;
     public NavMeshAgent agent;
     bool m_isMoving;
+    public bool IsMoving { get { return m_isMoving; } set { m_isMoving = value; } }
     public bool m_canMove = false;
     public ThirdPersonCharacter character;
 
@@ -16,6 +17,7 @@ public class PlayerManager : MonoBehaviour
         cam = Camera.main;
         agent.updateRotation = false;
     }
+
     // Update is called once per frame
     void Update()
     {

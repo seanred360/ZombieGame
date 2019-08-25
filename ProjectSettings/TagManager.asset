@@ -11,6 +11,8 @@ TagManager:
   - GameManager
   - House
   - Zombie
+  - Round
+  - ZombieCamera
   layers:
   - Default
   - TransparentFX

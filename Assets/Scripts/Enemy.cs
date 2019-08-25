@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Enemy : TurnManager
 {
-    EnemyManager m_enemyManager;
-
-    // global flag for enabling and disabling user input
-    bool m_inputEnabled = false;
-    public bool InputEnabled { get { return m_inputEnabled; } set { m_inputEnabled = value; } }
+    public EnemyManager m_enemyManager;
 
     protected override void Awake()
     {
@@ -18,7 +14,7 @@ public class Enemy : TurnManager
 
     private void Update()
     {
-        if (m_inputEnabled)
+        if (InputEnabled)
         {
             m_enemyManager.m_canMove = true;
         }
@@ -30,7 +26,7 @@ public class Enemy : TurnManager
         {
             if (other.gameObject.GetComponent<House>().m_ReceivedPlayers.Count > 0)
             {
-                KillPlayers();
+                KillPlayers(other.gameObject.GetComponent<House>());
             }
             FinishTurn();
         }
@@ -43,9 +39,14 @@ public class Enemy : TurnManager
         m_enemyManager.PlayTurn();
     }
 
-    void KillPlayers()
+    void KillPlayers(House house)
     {
         m_gameManager.m_audioManager.PlaySFX(0);
+        foreach (Player player in house.m_ReceivedPlayers)
+        {
+            player.health -= 1;
+            Debug.Log(player.gameObject.name + " -1 health");
+        }
     }
 
     // override the TurnManager's FinishTurn
@@ -55,6 +56,7 @@ public class Enemy : TurnManager
         base.FinishTurn();
         m_isTurnComplete = true;
         Debug.Log("finished turn");
+        m_gameManager.StartNextRound();
         gameObject.SetActive(false);
     }
 }
