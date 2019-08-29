@@ -12,8 +12,8 @@ public class Player : TurnManager
 
     public ThirdPersonCharacter character;
 
+    public List<Follower> followers;
     public int playerNumber;
-    public Follower[] followers;
     public int health = 3;
 
     protected override void Awake()
@@ -63,13 +63,30 @@ public class Player : TurnManager
         {
             case 0:
                 Debug.Log("player is dead" + gameObject.name);
+                m_gameManager.m_players.Remove(this);
+                Destroy(gameObject);
                 break;
             case 1:
-                followers[1].isDead = true;
+                followers[0].isDead = true;
+                followers.Remove(followers[0]);
                 break;
             case 2:
-                followers[0].isDead = true;
+                followers[1].isDead = true;
+                followers.Remove(followers[1]);
                 break;
+        }
+    }
+
+    public void ReactivateFollowers()
+    {
+        foreach (Follower follower in followers)
+            follower.gameObject.SetActive(true);
+    }
+    void DeactivateFollowers()
+    {
+        foreach (Follower follower in followers)
+        {
+            follower.gameObject.SetActive(false);
         }
     }
 
@@ -91,10 +108,7 @@ public class Player : TurnManager
         // tell the GameManager the PlayerTurn is complete
         base.FinishTurn();
         Debug.Log(gameObject.name + "finished turn");
-        foreach (Follower follower in followers)
-        {
-            follower.gameObject.SetActive(false);
-        }
+        DeactivateFollowers();
         InputEnabled = false;
         gameObject.SetActive(false);
     }

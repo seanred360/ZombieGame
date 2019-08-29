@@ -249,7 +249,7 @@ public class GameManager : MonoBehaviour
     void PlayEnemyTurn()
     {
         m_currentTurn = Turn.Enemy;
-
+        ChangeCamera();
         foreach (Enemy enemy in m_enemies)
         {
             if (enemy != null)
@@ -319,7 +319,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start next round");
         yield return new WaitForSeconds(2f);
-        ChangeCamera();
         m_cameraTarget += new Vector3(0f, 0f, 22);
         roundLocation += 22;
         m_canMoveCamera = true;
@@ -346,14 +345,13 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < m_players.Count; i++)
         {
-            //m_players[i].transform.position = m_spawnPoints[i].transform.position;
             m_players[i].gameObject.SetActive(true);
+            m_players[i].ReactivateFollowers();
             m_players[i].agent.SetDestination(m_spawnPoints[i].transform.position);
         }
 
         for (int i = 0; i < m_enemies.Count; i++)
         {
-            //m_enemies[i].transform.position = m_enemySpawnPoints[i].transform.position;
             m_enemies[i].gameObject.SetActive(true);
             m_enemies[i].m_enemyManager.agent.SetDestination(m_enemySpawnPoints[i].transform.position);
         }
@@ -365,6 +363,7 @@ public class GameManager : MonoBehaviour
 
     void ChangeCamera()
     {
+        Debug.Log("change camera");
         if (cam.gameObject.activeSelf == false)
         {
             cam.gameObject.SetActive(true);
