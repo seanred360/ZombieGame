@@ -321,6 +321,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         m_cameraTarget += new Vector3(0f, 0f, 22);
         roundLocation += 22;
+       
         m_canMoveCamera = true;
 
         for (int i = 0; i < m_spawnPoints.Length; i++)
