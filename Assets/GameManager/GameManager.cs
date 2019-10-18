@@ -16,8 +16,6 @@ public enum Turn
 public class GameManager : MonoBehaviour
 {
     // reference to PlayerManager
-    public Player m_player1;
-
     public List<Enemy> m_enemies;
     public List<Player> m_players;
     public List<House> m_houses;
@@ -27,6 +25,9 @@ public class GameManager : MonoBehaviour
     public AudioManager m_audioManager;
     public GameObject m_roundPrefab;
     public NavMeshSurface m_surface;
+    public MeshFilter ground;
+    public GameObject zombiePrefab;
+    int roundNumber = 1;
 
     float roundLocation;
     Vector3 m_cameraTarget;
@@ -114,7 +115,7 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("START LEVEL");
-        m_player1.InputEnabled = false;
+        m_players[0].InputEnabled = false;
 
         while (!m_hasLevelStarted)
         {
@@ -137,7 +138,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("PLAY LEVEL");
         m_isGamePlaying = true;
         yield return new WaitForSeconds(delay);
-        m_player1.InputEnabled = true;
+        m_players[0].InputEnabled = true;
 
         // trigger any events as we start playing the level
         if (playLevelEvent != null)
@@ -190,7 +191,7 @@ public class GameManager : MonoBehaviour
     IEnumerator EndLevelRoutine()
     {
         Debug.Log("END LEVEL");
-        m_player1.InputEnabled = false;
+        m_players[0].InputEnabled = false;
 
         // run events when we end the level
         if (endLevelEvent != null)
@@ -319,19 +320,29 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Start next round");
         yield return new WaitForSeconds(2f);
-        m_cameraTarget += new Vector3(0f, 0f, 22);
-        roundLocation += 22;
+
+        Mesh planeMesh = ground.mesh;
+        Bounds bounds = ground.GetComponent<MeshCollider>().bounds;
+        // size in pixels
+        float boundsX = m_roundPrefab.transform.localScale.x * bounds.size.x;
+        float boundsY = m_roundPrefab.transform.localScale.y * bounds.size.y;
+        float boundsZ = m_roundPrefab.transform.localScale.z * bounds.size.z;
+        Debug.Log(boundsZ);
+
+        roundNumber += 1;
+        m_cameraTarget += new Vector3(0f, 0f, boundsZ);
+        roundLocation += boundsZ;
        
         m_canMoveCamera = true;
 
         for (int i = 0; i < m_spawnPoints.Length; i++)
         {
-            m_spawnPoints[i].transform.position += new Vector3(0f, 0f, 22f);
+            m_spawnPoints[i].transform.position += new Vector3(0f, 0f, boundsZ);
         }
 
         for (int i = 0; i < m_enemySpawnPoints.Length; i++)
         {
-            m_enemySpawnPoints[i].transform.position += new Vector3(0f, 0f, 22f);
+            m_enemySpawnPoints[i].transform.position += new Vector3(0f, 0f, boundsZ);
         }
 
         for (int i = 0; i < m_houses.Count; i++)
@@ -344,13 +355,24 @@ public class GameManager : MonoBehaviour
         m_surface.BuildNavMesh();
         m_houses = (Object.FindObjectsOfType<House>() as House[]).ToList();
 
-        for (int i = 0; i < m_players.Count; i++)
+        if(roundNumber == 3 || roundNumber == 6 || roundNumber == 9)
         {
-            m_players[i].gameObject.SetActive(true);
-            m_players[i].ReactivateFollowers();
-            m_players[i].agent.SetDestination(m_spawnPoints[i].transform.position);
+            GameObject zombieClone = Instantiate(zombiePrefab, new Vector3 (0f, 0f, roundLocation), Quaternion.identity);
+            m_enemies.Add(zombieClone.GetComponent<Enemy>());
         }
 
+        for (int i = 0; i < m_players.Count; i++)
+        {
+            if(m_players[i].isDead == true) { m_players.RemoveAt(i); }
+            else
+            {
+                m_players[i].gameObject.SetActive(true);
+                m_players[i].ReactivateFollowers();
+                m_players[i].agent.SetDestination(m_spawnPoints[i].transform.position);
+            }
+        }
+
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < m_enemies.Count; i++)
         {
             m_enemies[i].gameObject.SetActive(true);
@@ -359,7 +381,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         foreach(Player player in m_players){player.InputEnabled = false; player.IsTurnComplete = false; }
         foreach (Enemy enemy in m_enemies) { enemy.InputEnabled = false; enemy.IsTurnComplete = false; }
-        m_player1.PlayTurn();
+        m_players[0].PlayTurn();
     }
 
     void ChangeCamera()

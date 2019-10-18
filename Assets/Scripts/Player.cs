@@ -15,6 +15,7 @@ public class Player : TurnManager
     public List<Follower> followers;
     public int playerNumber;
     public int health = 3;
+    public bool isDead;
 
     protected override void Awake()
     {
@@ -40,7 +41,7 @@ public class Player : TurnManager
                 }
             }
         }
-        if (!agent.pathPending)
+        if (!agent.pathPending && isDead == false)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
@@ -50,7 +51,7 @@ public class Player : TurnManager
                 }
             }
         }
-        if (agent.remainingDistance > agent.stoppingDistance)
+        if (agent.remainingDistance > agent.stoppingDistance && isDead == false)
         {
             character.Move(agent.desiredVelocity, false, false);
         }
@@ -64,7 +65,9 @@ public class Player : TurnManager
             case 0:
                 Debug.Log("player is dead" + gameObject.name);
                 m_gameManager.m_players.Remove(this);
-                Destroy(gameObject);
+                isDead = true;
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
                 break;
             case 1:
                 followers[0].isDead = true;

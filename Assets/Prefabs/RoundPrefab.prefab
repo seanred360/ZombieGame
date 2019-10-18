@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8396801838560168347}
   - component: {fileID: 1306053550182684439}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5249293483085650639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.68, z: -0.067}
-  m_LocalScale: {x: 2.22, y: 1, z: 2.207}
+  m_LocalPosition: {x: 0, y: 0.68, z: 1.788}
+  m_LocalScale: {x: 2.67982, y: 1, z: 2.577776}
   m_Children: []
   m_Father: {fileID: 5265026523460405392}
   m_RootOrder: 5
@@ -102,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5265026523460405392}
   m_Layer: 0
-  m_Name: Round 2
+  m_Name: RoundPrefab
   m_TagString: Round
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
