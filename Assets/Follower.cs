@@ -12,9 +12,7 @@ public class Follower : PlayerManager
         if (isDead)
         {
             Debug.Log(gameObject.name + " is dead");
-            gameObject.SetActive(false);
-            return; // stops a nav mesh agent bug when it dies
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
 
         if (followTarget != null && agent != null)

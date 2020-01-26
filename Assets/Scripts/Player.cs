@@ -71,11 +71,11 @@ public class Player : TurnManager
                 break;
             case 1:
                 followers[0].isDead = true;
-                //followers.Remove(followers[0]);
+                followers.Remove(followers[0]);
                 break;
             case 2:
                 followers[1].isDead = true;
-                //followers.Remove(followers[1]);
+                followers.Remove(followers[1]);
                 break;
         }
     }
@@ -83,10 +83,7 @@ public class Player : TurnManager
     public void ReactivateFollowers()
     {
         foreach (Follower follower in followers)
-        {
-            if(follower.isDead == false)
             follower.gameObject.SetActive(true);
-        }     
     }
     void DeactivateFollowers()
     {
