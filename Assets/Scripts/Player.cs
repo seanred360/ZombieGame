@@ -15,7 +15,6 @@ public class Player : TurnManager
     public int playerNumber;
     public Follower[] followers;
     public int health = 3;
-    public bool isDead;
 
     protected override void Awake()
     {
@@ -41,7 +40,7 @@ public class Player : TurnManager
                 }
             }
         }
-        if (!agent.pathPending && isDead == false)
+        if (!agent.pathPending)
         {
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
@@ -51,7 +50,7 @@ public class Player : TurnManager
                 }
             }
         }
-        if (agent.remainingDistance > agent.stoppingDistance && isDead == false)
+        if (agent.remainingDistance > agent.stoppingDistance)
         {
             character.Move(agent.desiredVelocity, false, false);
         }
@@ -66,11 +65,15 @@ public class Player : TurnManager
                 Debug.Log("player is dead" + gameObject.name);
 <<<<<<< HEAD
                 m_gameManager.m_players.Remove(this);
+<<<<<<< HEAD
                 isDead = true;
                 gameObject.SetActive(false);
                 //Destroy(gameObject);
 =======
 >>>>>>> parent of fc8e375... followers can die, updated graphics
+=======
+                Destroy(gameObject);
+>>>>>>> parent of 8ffaa33... fixed bugs the game can be completed without bugs
                 break;
             case 1:
                 followers[1].isDead = true;

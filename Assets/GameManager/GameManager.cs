@@ -16,6 +16,8 @@ public enum Turn
 public class GameManager : MonoBehaviour
 {
     // reference to PlayerManager
+    public Player m_player1;
+
     public List<Enemy> m_enemies;
     public List<Player> m_players;
     public List<House> m_houses;
@@ -25,9 +27,6 @@ public class GameManager : MonoBehaviour
     public AudioManager m_audioManager;
     public GameObject m_roundPrefab;
     public NavMeshSurface m_surface;
-    public MeshFilter ground;
-    public GameObject zombiePrefab;
-    int roundNumber = 1;
 
     float roundLocation;
     Vector3 m_cameraTarget;
@@ -115,7 +114,7 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("START LEVEL");
-        m_players[0].InputEnabled = false;
+        m_player1.InputEnabled = false;
 
         while (!m_hasLevelStarted)
         {
@@ -138,7 +137,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("PLAY LEVEL");
         m_isGamePlaying = true;
         yield return new WaitForSeconds(delay);
-        m_players[0].InputEnabled = true;
+        m_player1.InputEnabled = true;
 
         // trigger any events as we start playing the level
         if (playLevelEvent != null)
@@ -191,7 +190,7 @@ public class GameManager : MonoBehaviour
     IEnumerator EndLevelRoutine()
     {
         Debug.Log("END LEVEL");
-        m_players[0].InputEnabled = false;
+        m_player1.InputEnabled = false;
 
         // run events when we end the level
         if (endLevelEvent != null)
@@ -322,6 +321,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         Mesh planeMesh = ground.mesh;
         Bounds bounds = ground.GetComponent<MeshCollider>().bounds;
@@ -334,6 +334,10 @@ public class GameManager : MonoBehaviour
         roundNumber += 1;
         m_cameraTarget += new Vector3(0f, 0f, boundsZ);
         roundLocation += boundsZ;
+=======
+        m_cameraTarget += new Vector3(0f, 0f, 22);
+        roundLocation += 22;
+>>>>>>> parent of 8ffaa33... fixed bugs the game can be completed without bugs
        
 =======
 =======
@@ -346,12 +350,12 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < m_spawnPoints.Length; i++)
         {
-            m_spawnPoints[i].transform.position += new Vector3(0f, 0f, boundsZ);
+            m_spawnPoints[i].transform.position += new Vector3(0f, 0f, 22f);
         }
 
         for (int i = 0; i < m_enemySpawnPoints.Length; i++)
         {
-            m_enemySpawnPoints[i].transform.position += new Vector3(0f, 0f, boundsZ);
+            m_enemySpawnPoints[i].transform.position += new Vector3(0f, 0f, 22f);
         }
 
         for (int i = 0; i < m_houses.Count; i++)
@@ -364,14 +368,9 @@ public class GameManager : MonoBehaviour
         m_surface.BuildNavMesh();
         m_houses = (Object.FindObjectsOfType<House>() as House[]).ToList();
 
-        if(roundNumber == 3 || roundNumber == 6 || roundNumber == 9)
-        {
-            GameObject zombieClone = Instantiate(zombiePrefab, new Vector3 (0f, 0f, roundLocation), Quaternion.identity);
-            m_enemies.Add(zombieClone.GetComponent<Enemy>());
-        }
-
         for (int i = 0; i < m_players.Count; i++)
         {
+<<<<<<< HEAD
 <<<<<<< HEAD
             if(m_players[i].isDead == true) { m_players.RemoveAt(i); }
             else
@@ -385,9 +384,13 @@ public class GameManager : MonoBehaviour
             m_players[i].gameObject.SetActive(true);
             m_players[i].agent.SetDestination(m_spawnPoints[i].transform.position);
 >>>>>>> parent of fc8e375... followers can die, updated graphics
+=======
+            m_players[i].gameObject.SetActive(true);
+            m_players[i].ReactivateFollowers();
+            m_players[i].agent.SetDestination(m_spawnPoints[i].transform.position);
+>>>>>>> parent of 8ffaa33... fixed bugs the game can be completed without bugs
         }
 
-        yield return new WaitForSeconds(1f);
         for (int i = 0; i < m_enemies.Count; i++)
         {
             //m_enemies[i].transform.position = m_enemySpawnPoints[i].transform.position;
@@ -397,7 +400,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         foreach(Player player in m_players){player.InputEnabled = false; player.IsTurnComplete = false; }
         foreach (Enemy enemy in m_enemies) { enemy.InputEnabled = false; enemy.IsTurnComplete = false; }
-        m_players[0].PlayTurn();
+        m_player1.PlayTurn();
     }
 
     void ChangeCamera()
