@@ -11,8 +11,8 @@ public class Follower : PlayerManager
     {
         if (isDead)
         {
+            gameObject.SetActive(false);
             Debug.Log(gameObject.name + " is dead");
-            Destroy(gameObject);
         }
 
         if (followTarget != null && agent != null)

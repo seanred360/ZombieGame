@@ -12,8 +12,8 @@ public class Player : TurnManager
 
     public ThirdPersonCharacter character;
 
-    public List<Follower> followers;
     public int playerNumber;
+    public Follower[] followers;
     public int health = 3;
     public bool isDead;
 
@@ -64,32 +64,20 @@ public class Player : TurnManager
         {
             case 0:
                 Debug.Log("player is dead" + gameObject.name);
+<<<<<<< HEAD
                 m_gameManager.m_players.Remove(this);
                 isDead = true;
                 gameObject.SetActive(false);
                 //Destroy(gameObject);
+=======
+>>>>>>> parent of fc8e375... followers can die, updated graphics
                 break;
             case 1:
-                followers[0].isDead = true;
-                followers.Remove(followers[0]);
+                followers[1].isDead = true;
                 break;
             case 2:
-                followers[1].isDead = true;
-                followers.Remove(followers[1]);
+                followers[0].isDead = true;
                 break;
-        }
-    }
-
-    public void ReactivateFollowers()
-    {
-        foreach (Follower follower in followers)
-            follower.gameObject.SetActive(true);
-    }
-    void DeactivateFollowers()
-    {
-        foreach (Follower follower in followers)
-        {
-            follower.gameObject.SetActive(false);
         }
     }
 
@@ -111,7 +99,10 @@ public class Player : TurnManager
         // tell the GameManager the PlayerTurn is complete
         base.FinishTurn();
         Debug.Log(gameObject.name + "finished turn");
-        DeactivateFollowers();
+        foreach (Follower follower in followers)
+        {
+            follower.gameObject.SetActive(false);
+        }
         InputEnabled = false;
         gameObject.SetActive(false);
     }

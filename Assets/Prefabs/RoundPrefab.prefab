@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD:Assets/Prefabs/RoundPrefab.prefab
 --- !u!1 &5249293483085650639
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +93,8 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+=======
+>>>>>>> parent of fc8e375... followers can die, updated graphics:Assets/Prefabs/Round 2.prefab
 --- !u!1 &5265026523460405393
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +127,6 @@ Transform:
   - {fileID: 6929575685694364615}
   - {fileID: 6929575685366296219}
   - {fileID: 5265026524196592996}
-  - {fileID: 2177755172208830212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -146,7 +148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5265026524196592996
 Transform:
   m_ObjectHideFlags: 0
@@ -186,7 +188,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 656f3caaf179743459780f9a1179a382, type: 2}
+  - {fileID: 2100000, guid: daa68a32eef103b498047437a683799e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
